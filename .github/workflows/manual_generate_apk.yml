@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "count=$(git tag -l 'v[0-9]*' | wc -l | tr -d ' ')" >> $GITHUB_OUTPUT
 
-      - name: Fetch upstream tags # required for git describe to return a valid version and to preevnt androidGitVersion from crashing on a new fork
+      - name: Fetch upstream tags # required for git describe to return a valid version and to preevnt assembleNormalOptimized from crashing on a new fork
         if: steps.valid-tags.outputs.count == '0'
         run: |
           # TODO: should try to fetch tags from whereever this repo was forked from before fetching from official repo
@@ -55,10 +55,10 @@ jobs:
       #  with:
       #    ndk-version: r21e
 
-      - name: Test androidGitVersion
+      - name: Test assembleNormalOptimized
         run: |
           echo "count=${{steps.valid-tags.outputs.count}}"
-          gradle --quiet androidGitVersion
+          gradle --quiet assembleNormalOptimized
       
       - name: Assemble APK
         run: ./gradlew assemble${{ github.event.inputs.buildVariant }} --stacktrace
