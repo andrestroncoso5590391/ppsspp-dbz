@@ -32,6 +32,7 @@
 class LinkedShader;
 class ShaderManagerGLES;
 class TextureCacheGLES;
+class DBZStyleManager;
 class FramebufferManagerGLES;
 class FramebufferManagerCommon;
 class TextureCacheCommon;
@@ -98,6 +99,7 @@ private:
 	// Other
 	ShaderManagerGLES *shaderManager_ = nullptr;
 	TextureCacheGLES *textureCache_ = nullptr;
+   DBZStyleManager *styleManager_ = nullptr;
 	FramebufferManagerGLES *framebufferManager_ = nullptr;
 	FragmentTestCacheGLES *fragmentTestCache_ = nullptr;
 	Draw::DrawContext *draw_;

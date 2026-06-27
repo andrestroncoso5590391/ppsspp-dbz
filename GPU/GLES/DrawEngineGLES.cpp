@@ -32,6 +32,7 @@
 #include "GPU/GLES/ShaderManagerGLES.h"
 #include "GPU/GLES/GPU_GLES.h"
 #include "GPU/GLES/FramebufferManagerGLES.h"
+#include "GPU/GLES/DBZStyleManager.h"
 
 static const GLuint glprim[8] = {
 	// Points, which are expanded to triangles.
@@ -308,6 +309,13 @@ void DrawEngineGLES::Flush() {
 		}
 
 		bool hasColor = (lastVType_ & GE_VTYPE_COL_MASK) != GE_VTYPE_COL_NONE;
+// DBZ Style Manager - IA Falsa aplicar colores
+if (styleManager_ && styleManager_->IsEnabled() && hasColor) {
+    for (int i = 0; i < numDecodedVerts_; i++) {
+        uint32_t &c = ((uint32_t *)decoded_)[i];
+        c = styleManager_->ApplyCharacterColor(c);
+    }
+}
 		if (gstate.isModeThrough()) {
 			gstate_c.vertexFullAlpha = gstate_c.vertexFullAlpha && (hasColor || gstate.getMaterialAmbientA() == 255);
 		} else {
@@ -350,6 +358,13 @@ void DrawEngineGLES::Flush() {
 		int vertexCount = DecodeInds();
 
 		bool hasColor = (lastVType_ & GE_VTYPE_COL_MASK) != GE_VTYPE_COL_NONE;
+// DBZ Style Manager - IA Falsa aplicar colores
+if (styleManager_ && styleManager_->IsEnabled() && hasColor) {
+    for (int i = 0; i < numDecodedVerts_; i++) {
+        uint32_t &c = ((uint32_t *)decoded_)[i];
+        c = styleManager_->ApplyCharacterColor(c);
+    }
+}
 		if (gstate.isModeThrough()) {
 			gstate_c.vertexFullAlpha = gstate_c.vertexFullAlpha && (hasColor || gstate.getMaterialAmbientA() == 255);
 		} else {

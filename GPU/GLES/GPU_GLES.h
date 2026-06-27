@@ -25,6 +25,7 @@
 #include "GPU/Common/TextureShaderCommon.h"
 #include "GPU/GLES/DrawEngineGLES.h"
 #include "GPU/GLES/FragmentTestCacheGLES.h"
+#include "GPU/GLES/DBZStyleManager.h"
 
 class ShaderManagerGLES;
 class TextureCacheGLES;
@@ -60,4 +61,6 @@ private:
 	ShaderManagerGLES *shaderManagerGL_;
 
 	Path shaderCachePath_;
-};
+            DBZStyleManager *styleManager_ = nullptr;
+}; 
+

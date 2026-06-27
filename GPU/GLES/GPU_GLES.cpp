@@ -39,6 +39,7 @@
 #include "GPU/GLES/FramebufferManagerGLES.h"
 #include "GPU/GLES/DrawEngineGLES.h"
 #include "GPU/GLES/TextureCacheGLES.h"
+#include "GPU/GLES/DBZStyleManager.h"
 
 #ifdef _WIN32
 #include "Windows/GPU/WindowsGLContext.h"
@@ -47,6 +48,8 @@
 GPU_GLES::GPU_GLES(GraphicsContext *gfxCtx, Draw::DrawContext *draw)
 	: GPUCommonHW(gfxCtx, draw), drawEngine_(draw), fragmentTestCache_(draw) {
 	gstate_c.SetUseFlags(CheckGPUFeatures());
+styleManager_ = new DBZStyleManager();
+styleManager_->SetStyle(DBZStyle::DBZ);
 
 	shaderManagerGL_ = new ShaderManagerGLES(draw);
 	framebufferManagerGL_ = new FramebufferManagerGLES(draw);
