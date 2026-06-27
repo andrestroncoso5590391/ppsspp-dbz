@@ -1933,6 +1933,7 @@ set(GPU_GLES
 	GPU/GLES/TextureCacheGLES.cpp
 	GPU/GLES/TextureCacheGLES.h
 	GPU/GLES/DrawEngineGLES.cpp
+        GPU/GLES/DBZStyleManager.cpp
 	GPU/GLES/DrawEngineGLES.h
 )
 
