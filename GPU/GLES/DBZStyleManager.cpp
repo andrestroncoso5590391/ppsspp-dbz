@@ -100,10 +100,10 @@ bool DBZStyleManager::IsConflictColor(uint32_t color) {
 
 // IA Falsa 1: aplica color a personaje
 uint32_t DBZStyleManager::ApplyCharacterColor(uint32_t originalColor) {
-    if (!enabled_ || IsConflictColor(originalColor)) 
-        return originalColor;
-    if (!IsCharacterColor(originalColor)) 
-        return originalColor;
+//    if (!enabled_ || IsConflictColor(originalColor)) 
+//      return originalColor;
+//  if (!IsCharacterColor(originalColor)) 
+//      return originalColor;
     StylePalette p = GetPaletteForStyle(currentStyle_);
     return BlendColors(originalColor, p.primaryColor, 1.0f);
 }
