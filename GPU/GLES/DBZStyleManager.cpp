@@ -23,7 +23,7 @@ const int DBZStyleManager::numMapRanges_ = 3;
 
 DBZStyleManager::DBZStyleManager() {
     currentStyle_ = DBZStyle::NONE;
-    enabled_ = false;
+    enabled_ = true ;
 }
 
 void DBZStyleManager::SetStyle(DBZStyle style) {
@@ -110,10 +110,10 @@ uint32_t DBZStyleManager::ApplyCharacterColor(uint32_t originalColor) {
 
 // IA Falsa 2: aplica color a mapa
 uint32_t DBZStyleManager::ApplyMapColor(uint32_t originalColor) {
-    if (!enabled_ || IsConflictColor(originalColor)) 
-        return originalColor;
-    if (!IsMapColor(originalColor)) 
-        return originalColor;
+//    if (!enabled_ || IsConflictColor(originalColor)) 
+//        return originalColor;
+//    if (!IsMapColor(originalColor)) 
+//        return originalColor;
     StylePalette p = GetPaletteForStyle(currentStyle_);
     return BlendColors(originalColor, p.skyColor, 0.4f);
 }
