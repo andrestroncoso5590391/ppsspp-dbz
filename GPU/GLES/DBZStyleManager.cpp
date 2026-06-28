@@ -1,4 +1,5 @@
 #include "GPU/GLES/DBZStyleManager.h"
+DBZStyleManager g_dbzStyleManager;
 
 // ============================================
 // Paletas de colores por serie
@@ -22,7 +23,7 @@ const int DBZStyleManager::numCharacterRanges_ = 3;
 const int DBZStyleManager::numMapRanges_ = 3;
 
 DBZStyleManager::DBZStyleManager() {
-    currentStyle_ = DBZStyle::NONE;
+    currentStyle_ = DBZStyle::DBZ_Z;
     enabled_ = true ;
 }
 

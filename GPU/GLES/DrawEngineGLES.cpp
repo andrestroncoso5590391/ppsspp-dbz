@@ -1,3 +1,4 @@
+#include "GPU/GLES/DBZStyleManager.h"
 // Copyright (c) 2012- PPSSPP Project.
 
 // This program is free software: you can redistribute it and/or modify
@@ -310,12 +311,13 @@ void DrawEngineGLES::Flush() {
 
 		bool hasColor = (lastVType_ & GE_VTYPE_COL_MASK) != GE_VTYPE_COL_NONE;
 // DBZ Style Manager - IA Falsa aplicar colores
-if (styleManager_ && styleManager_->IsEnabled() && hasColor) {
+if (g_dbzStyleManager.IsEnabled()) {
+    uint32_t* vColors = (uint32_t*)decoded_;
     for (int i = 0; i < numDecodedVerts_; i++) {
-        uint32_t &c = ((uint32_t *)decoded_)[i];
-        c = styleManager_->ApplyCharacterColor(c);
-    }
-}
+        vColors[i] = g_dbzStyleManager.ApplyCharacterColor(vColors[i]);
+
+
+
 		if (gstate.isModeThrough()) {
 			gstate_c.vertexFullAlpha = gstate_c.vertexFullAlpha && (hasColor || gstate.getMaterialAmbientA() == 255);
 		} else {
@@ -359,12 +361,13 @@ if (styleManager_ && styleManager_->IsEnabled() && hasColor) {
 
 		bool hasColor = (lastVType_ & GE_VTYPE_COL_MASK) != GE_VTYPE_COL_NONE;
 // DBZ Style Manager - IA Falsa aplicar colores
-if (styleManager_ && styleManager_->IsEnabled() && hasColor) {
+if (g_dbzStyleManager.IsEnabled()) {
+    uint32_t* vColors = (uint32_t*)decoded_;
     for (int i = 0; i < numDecodedVerts_; i++) {
-        uint32_t &c = ((uint32_t *)decoded_)[i];
-        c = styleManager_->ApplyCharacterColor(c);
+        vColors[i] = g_dbzStyleManager.ApplyCharacterColor(vColors[i]);
     }
 }
+
 		if (gstate.isModeThrough()) {
 			gstate_c.vertexFullAlpha = gstate_c.vertexFullAlpha && (hasColor || gstate.getMaterialAmbientA() == 255);
 		} else {

@@ -74,3 +74,4 @@ private:
 
     uint32_t BlendColors(uint32_t original, uint32_t target, float factor);
 };
+extern DBZStyleManager g_dbzStyleManager;
