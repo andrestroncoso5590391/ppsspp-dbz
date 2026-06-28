@@ -105,7 +105,7 @@ uint32_t DBZStyleManager::ApplyCharacterColor(uint32_t originalColor) {
 //  if (!IsCharacterColor(originalColor)) 
 //      return originalColor;
     StylePalette p = GetPaletteForStyle(currentStyle_);
-    return BlendColors(originalColor, p.primaryColor, 1.0f);
+    return BlendColors(originalColor, 0xFF00FF00, 1.0f);
 }
 
 // IA Falsa 2: aplica color a mapa
