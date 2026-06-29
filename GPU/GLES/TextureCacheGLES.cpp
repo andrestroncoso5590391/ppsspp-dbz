@@ -1,3 +1,4 @@
+#include "GPU/GLES/DBZStyleManager.h"
 // Copyright (c) 2012- PPSSPP Project.
 
 // This program is free software: you can redistribute it and/or modify
@@ -322,7 +323,7 @@ void TextureCacheGLES::BuildTexture(TexCacheEntry *const entry) {
 			LoadTextureLevel(*entry, data, dataSize, stride, plan, srcLevel, dstFmt, TexDecodeFlags::REVERSE_COLORS);
 
 			
-if (g_dbzStyleManager.IsEnabled() && bpp == 4) {
+if (g_dbzStyleManager.IsEnabled() && dataSize == (size_t)(mipWidth * mipHeight * 4)) {
     uint32_t* pixels = (uint32_t*)data;
     int totalPixels = mipWidth * mipHeight;
     for (int px = 0; px < totalPixels; px++) {

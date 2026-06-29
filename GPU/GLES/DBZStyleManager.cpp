@@ -23,7 +23,7 @@ const int DBZStyleManager::numCharacterRanges_ = 3;
 const int DBZStyleManager::numMapRanges_ = 3;
 
 DBZStyleManager::DBZStyleManager() {
-    currentStyle_ = DBZStyle::DBZ_Z;
+    currentStyle_ = DBZStyle::DBZ;
     enabled_ = true ;
 }
 

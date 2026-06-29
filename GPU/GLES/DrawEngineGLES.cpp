@@ -315,6 +315,8 @@ if (g_dbzStyleManager.IsEnabled()) {
     uint32_t* vColors = (uint32_t*)decoded_;
     for (int i = 0; i < numDecodedVerts_; i++) {
         vColors[i] = g_dbzStyleManager.ApplyCharacterColor(vColors[i]);
+}
+}
 
 
 
