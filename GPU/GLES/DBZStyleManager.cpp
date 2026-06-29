@@ -103,8 +103,8 @@ bool DBZStyleManager::IsConflictColor(uint32_t color) {
 uint32_t DBZStyleManager::ApplyCharacterColor(uint32_t originalColor) {
 //    if (!enabled_ || IsConflictColor(originalColor)) 
         return originalColor;
-    if (!IsCharacterColor(originalColor))
-        return originalColor;
+//    if (!IsCharacterColor(originalColor))
+//        return originalColor;
     StylePalette p = GetPaletteForStyle(currentStyle_);
     return BlendColors(originalColor, 0xFF00FF00, 1.0f);
 }
