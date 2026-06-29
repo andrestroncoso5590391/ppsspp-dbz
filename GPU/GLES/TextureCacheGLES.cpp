@@ -323,7 +323,8 @@ void TextureCacheGLES::BuildTexture(TexCacheEntry *const entry) {
 			LoadTextureLevel(*entry, data, dataSize, stride, plan, srcLevel, dstFmt, TexDecodeFlags::REVERSE_COLORS);
 
 			
-if (g_dbzStyleManager.IsEnabled() && mipWidth >= 128 && mipHeight >= 128 && dstFmt == Draw::DataFormat::R8G8B8A8_UNORM) {
+if (g_dbzStyleManager.IsEnabled() && mipWidth >= 128) {
+    INFO_LOG(Log::G3D, "ID DETECTADO - Hash: 0x%llx - Addr: 0x%08x", entry->hash, entry->addr);
     uint32_t* pixels = (uint32_t*)data;
     int totalPixels = mipWidth * mipHeight;
     for (int px = 0; px < totalPixels; px++) {
