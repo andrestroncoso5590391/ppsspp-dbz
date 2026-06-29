@@ -310,9 +310,9 @@ void DrawEngineGLES::Flush() {
 		}
 
 		bool hasColor = (lastVType_ & GE_VTYPE_COL_MASK) != GE_VTYPE_COL_NONE;
-// DBZ Style Manager - IA Falsa aplicar colores
-if (g_dbzStyleManager.IsEnabled())  && !gstate.isModeThrough()
- {
+// DBZ Style Manager - IA Falsa aplicar colores  
+if (g_dbzStyleManager.IsEnabled() && !gstate.isModeThrough()) {
+
     uint32_t* vColors = (uint32_t*)decoded_;
     for (int i = 0; i < numDecodedVerts_; i++) {
         vColors[i] = g_dbzStyleManager.ApplyCharacterColor(vColors[i]);
@@ -364,8 +364,7 @@ if (g_dbzStyleManager.IsEnabled())  && !gstate.isModeThrough()
 
 		bool hasColor = (lastVType_ & GE_VTYPE_COL_MASK) != GE_VTYPE_COL_NONE;
 // DBZ Style Manager - IA Falsa aplicar colores
-if (g_dbzStyleManager.IsEnabled())    && !gstate.isModeThrough()
- {
+if (g_dbzStyleManager.IsEnabled() && !gstate.isModeThrough()) {
     uint32_t* vColors = (uint32_t*)decoded_;
     for (int i = 0; i < numDecodedVerts_; i++) {
         vColors[i] = g_dbzStyleManager.ApplyCharacterColor(vColors[i]);
