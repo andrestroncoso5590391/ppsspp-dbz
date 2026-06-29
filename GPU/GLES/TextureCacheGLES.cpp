@@ -323,13 +323,13 @@ void TextureCacheGLES::BuildTexture(TexCacheEntry *const entry) {
 			LoadTextureLevel(*entry, data, dataSize, stride, plan, srcLevel, dstFmt, TexDecodeFlags::REVERSE_COLORS);
 
 			
-if (g_dbzStyleManager.IsEnabled() && dataSize == (size_t)(mipWidth * mipHeight * 4)) {
-    uint32_t* pixels = (uint32_t*)data;
-    int totalPixels = mipWidth * mipHeight;
-    for (int px = 0; px < totalPixels; px++) {
-        pixels[px] = g_dbzStyleManager.ApplyCharacterColor(pixels[px]);
-    }
-}
+//if (g_dbzStyleManager.IsEnabled() && dataSize == (size_t)(mipWidth * mipHeight * 4)) {
+//    uint32_t* pixels = (uint32_t*)data;
+//    int totalPixels = mipWidth * mipHeight;
+//    for (int px = 0; px < totalPixels; px++) {
+//        pixels[px] = g_dbzStyleManager.ApplyCharacterColor(pixels[px]);
+//    }
+//}
 // NOTE: TextureImage takes ownership of data, so we don't free it afterwards.
 			render_->TextureImage(entry->textureName, i, mipWidth, mipHeight, 1, dstFmt, data, GLRAllocType::ALIGNED);
 		}
