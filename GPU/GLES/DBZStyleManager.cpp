@@ -102,9 +102,9 @@ bool DBZStyleManager::IsConflictColor(uint32_t color) {
 // IA Falsa 1: aplica color a personaje
 uint32_t DBZStyleManager::ApplyCharacterColor(uint32_t originalColor) {
 //    if (!enabled_ || IsConflictColor(originalColor)) 
-//      return originalColor;
-//  if (!IsCharacterColor(originalColor)) 
-//      return originalColor;
+        return originalColor;
+    if (!IsCharacterColor(originalColor))
+        return originalColor;
     StylePalette p = GetPaletteForStyle(currentStyle_);
     return BlendColors(originalColor, 0xFF00FF00, 1.0f);
 }
@@ -112,9 +112,9 @@ uint32_t DBZStyleManager::ApplyCharacterColor(uint32_t originalColor) {
 // IA Falsa 2: aplica color a mapa
 uint32_t DBZStyleManager::ApplyMapColor(uint32_t originalColor) {
 //    if (!enabled_ || IsConflictColor(originalColor)) 
-//        return originalColor;
+        return originalColor;
 //    if (!IsMapColor(originalColor)) 
-//        return originalColor;
+        return originalColor;
     StylePalette p = GetPaletteForStyle(currentStyle_);
     return BlendColors(originalColor, p.skyColor, 0.4f);
 }
