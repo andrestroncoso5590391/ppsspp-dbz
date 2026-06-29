@@ -323,7 +323,7 @@ void TextureCacheGLES::BuildTexture(TexCacheEntry *const entry) {
 			LoadTextureLevel(*entry, data, dataSize, stride, plan, srcLevel, dstFmt, TexDecodeFlags::REVERSE_COLORS);
 
 			
-if (g_dbzStyleManager.IsEnabled() && mipWidth >= 64 && mipHeight >= 64) {
+if (g_dbzStyleManager.IsEnabled() && mipWidth >= 128 && mipHeight >= 128) {
     uint32_t* pixels = (uint32_t*)data;
     int totalPixels = mipWidth * mipHeight;
     for (int px = 0; px < totalPixels; px++) {
